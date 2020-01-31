@@ -51,7 +51,7 @@ class P5Editor extends HTMLElement {
             background: #efefef;
           }
         </style>
-        <script src="./js/p5.min.js"></script>
+        <script src="/intro-p5-slides/js/p5.min.js"></script>
         <script>${code}</script>
       </head>
       <body>
