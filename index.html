@@ -1,0 +1,804 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>p5-intro</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<style>
+			.reveal pre {
+				width: 100%;
+        height: 100%;
+				box-shadow: none;
+        display: flex;
+        margin: 0;
+			}
+
+      .reveal pre > code {
+        width: 100%;
+      }
+		</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- <section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim data-noescape>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  <mark>circle(200, 200, 100);</mark>
+}
+							</code>
+						</pre>
+					</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  fill('red');
+  circle(220, 220, 100);
+}
+							</code>
+						</pre>
+					</p5-editor>
+				</section> -->
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  createCanvas(400, 400);
+  circle(200, 200, 100);
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  createCanvas(400, 400);
+  circle(200, 200, 200);
+  circle(200, 200, 100);
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size;
+  var diameterDecreaseBy = 100;
+  createCanvas(size, size);
+  circle(center, center, diameter);
+  diameter = diameter - diameterDecreaseBy;
+  circle(center, center, diameter);
+  diameter = diameter - diameterDecreaseBy;
+  circle(center, center, diameter);
+  diameter = diameter - diameterDecreaseBy;
+  circle(center, center, diameter);
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size * 2;
+  var diameterDecreaseBy = 10;
+  createCanvas(size, size);
+  while(diameter > 0) {
+    circle(center, center, diameter);
+    diameter = diameter - diameterDecreaseBy;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size * 1.5;
+  var diameterDecreaseBy = 20;
+  var grey = 255;
+  createCanvas(size, size);
+  while(diameter > 0) {
+    fill(grey);
+    grey = grey - 8;
+    circle(center, center, diameter);
+    diameter = diameter - diameterDecreaseBy;
+  }
+}
+  					</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size * 1.5;
+  var diameterDecreaseBy = 20;
+  colorMode(HSB, 100);
+  var hue = 100;
+  createCanvas(size, size);
+  while(diameter > 0) {
+    fill(hue, 50, 100);
+    hue = hue - 2;
+    circle(center, center, diameter);
+    diameter = diameter - diameterDecreaseBy;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size * 1.5;
+  var diameterDecreaseBy = 100;
+  colorMode(HSB, 100);
+  var hue = 100;
+  var brightness = 50;
+  createCanvas(size, size);
+  noStroke();
+  while(diameter > 0) {
+    fill(hue, 60, brightness);
+    hue = hue - 2;
+    brightness = brightness + 15;
+    circle(center, center, diameter);
+    diameter = diameter - diameterDecreaseBy;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size * 1.5;
+  var diameterDecreaseBy = 1;
+  colorMode(HSB, 100);
+  var hue = 100;
+  createCanvas(size, size);
+  noStroke();
+  while(diameter > 0) {
+    var brightness = 50 + random(50);
+    fill(hue, 60, brightness);
+    hue = hue - 0.025;
+    circle(center, center, diameter);
+    diameter = diameter - diameterDecreaseBy;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size * 1.5;
+  var diameterDecreaseBy = 1;
+  colorMode(HSB, 100);
+  var hue = 100;
+  createCanvas(size, size);
+  noStroke();
+  while(diameter > 0) {
+    var brightness = 50 + random(50);
+    fill(hue, 60, brightness);
+    hue = hue - 0.025;
+    var x = center + random(5)
+    var y = center + random(5)
+    circle(x, y, diameter);
+    diameter = diameter - diameterDecreaseBy;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size;
+  var diameterDecreaseBy = 1;
+  colorMode(HSB, 100);
+  rectMode(CENTER);
+  var hue = 100;
+  createCanvas(size, size);
+  noStroke();
+  while(diameter > 0) {
+    var brightness = 50 + random(50);
+    fill(hue, 60, brightness);
+    hue = hue - 0.025;
+    var x = center + random(5);
+    var y = center + random(5);
+    rect(x, y, diameter, diameter);
+    diameter = diameter - diameterDecreaseBy;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var diameter = size;
+var diameterDecreaseBy = 1;
+// throws error on hue as global variable
+var hu = 100;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+  rectMode(CENTER);
+  noStroke();
+}
+
+function draw() {
+  var brightness = 50 + random(50);
+  fill(hu, 60, brightness);
+  hu = hu - 0.025;
+  var x = center + random(5);
+  var y = center + random(5);
+  rect(x, y, diameter, diameter);
+  diameter = diameter - diameterDecreaseBy;
+  if(diameter < 0) {
+    frameRate(0);
+  }
+}
+  					</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var diameter = size;
+var diameterDecreaseBy = 1;
+// throws error on hue as global variable
+var hu = 100;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+  rectMode(CENTER);
+  noStroke();
+}
+
+function draw() {
+  var brightness = 50 + random(50);
+  fill(hu, 60, brightness);
+  hu = hu - 0.025;
+  var x = mouseX || center;
+  var y = mouseY || center;
+  rect(x, y, diameter, diameter);
+  diameter = diameter - diameterDecreaseBy;
+  if(diameter < 0) {
+    frameRate(0);
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var diameter = 10;
+var t = 0;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  var x = t;
+  var y = center;
+  circle(x, y, diameter, diameter);
+  t = t + 1;
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var diameter = 10;
+var t = 0;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  background(100);
+  var x = t;
+  var y = center;
+  circle(x, y, diameter, diameter);
+  t = t + 10;
+  if(t > size) {
+    t = 0;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var diameter = 1;
+var t = 0;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  var x = t;
+  var y = center + random(10);
+  circle(x, y, diameter, diameter);
+  t = t + 1;
+  if(t > size) {
+    t = 0;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  var x = t % size;
+  var y = center + 50 * noise(t * 0.01);
+  point(x, y);
+  t = t + 1;
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 1;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  translate(t % size, 50 * noise(t * 0.01))
+  circle(0, center, diameter);
+  t = t + 1;
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 1;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  translate(t % size, 50 * noise(t * 0.01))
+  var d = 0;
+  while(d < 30) {
+    translate(0, 5);
+    circle(0, center, diameter);
+    d = d + 5;
+  }
+  t = t + 1;
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 10;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  background(100);
+  translate(center, center);
+  circle(0, 0, diameter);
+  rotate(t);
+  translate(40, 0);
+  circle(0, 0, diameter);
+  t = t + 0.1;
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 10;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  background(100);
+  translate(center, center);
+  circle(0, 0, diameter * 2);
+  rotate(t);
+  translate(60, 0);
+  circle(0, 0, diameter);
+  rotate(t * 0.5);
+  translate(20, 0);
+  circle(0, 0, diameter * 0.5);
+  t = t + 0.05;
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 10;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  // background(100);
+  translate(center, center);
+  // circle(0, 0, diameter * 2);
+  rotate(t);
+  translate(60, 0);
+  // circle(0, 0, diameter);
+  rotate(t * 0.5);
+  translate(20, 0);
+  point(0, 0);
+  t = t + 0.05;
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 10;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  // background(100);
+  translate(center, center);
+  // circle(0, 0, diameter * 2);
+  rotate(t);
+  translate(60, 0);
+  // circle(0, 0, diameter);
+  rotate(t * 3.1);
+  translate(20, 0);
+  point(0, 0);
+  t = t + 0.02;
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 10;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+}
+
+function draw() {
+  translate(center, center);
+  for(var i = 0; i < 10; i++) {
+    push()
+    rotate(t);
+    translate(100, 0);
+    rotate(t * PI);
+    translate(50, 0);
+    point(0, 0);
+    pop()
+    t = t + 0.02;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 10;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+  translate(center, center);
+  for(var i = 0; i < 10000; i++) {
+    push()
+    rotate(t);
+    translate(100, 0);
+    rotate(t * PI);
+    translate(50, 0);
+    point(0, 0);
+    pop()
+    t = t + 0.02;
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var diameter = 10;
+
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+  rectMode(CENTER);
+  for(var x = 10; x < size; x+=20) {
+    for(var y = 10; y < size; y+=20) {
+      push();
+      translate(x, y);
+      rect(0, 0, 10, 10)
+      pop()
+    }
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var cellSize = 50;
+var hCellSize = cellSize / 2;
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+  angleMode(DEGREES);
+  rectMode(CENTER);
+  noStroke();
+  for(var x = hCellSize; x < size; x+=cellSize) {
+    for(var y = hCellSize; y < size; y+=cellSize) {
+      push();
+      translate(x, y);
+      rotate(map(x + y, 0, size * 2, 0, 360));
+      fill(map(x + y, 0, size * 2, 0, 10), 50, 100);
+      rect(0, 0, hCellSize, hCellSize, 2);
+      pop()
+    }
+  }
+}
+						</code>
+					</pre>
+				</p5-editor>
+				</section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+var size = 400;
+var center = size / 2;
+var t = 0;
+var cellSize = 50;
+var hCellSize = cellSize / 2;
+function setup() {
+  createCanvas(size, size);
+  colorMode(HSB, 100);
+  angleMode(DEGREES);
+  rectMode(CENTER);
+  noStroke();
+  translate(center, center);
+  for(var x = 0; x < size * 100; x += cellSize) {
+    push();
+    rotate(x * PI * 0.149);
+    translate(cellSize + x * 0.01, 0);
+    fill(100, 100, map(x, 0, size * 100, 100, 0));
+    rect(0, 0, hCellSize, 4, 2);
+    pop();
+  }
+}
+				</code>
+			</pre>
+			</p5-editor>
+			</section>
+			</div>
+		</div>
+		<script src="js/p5-editor.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+        history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
+
