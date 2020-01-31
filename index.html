@@ -492,10 +492,10 @@ function setup() {
 }
 
 function draw() {
-  var x = t % size;
+  var x = t;
   var y = center + 50 * noise(t * 0.01);
   point(x, y);
-  t = t + 1;
+  t = t + 0.5;
 }
 						</code>
 					</pre>
@@ -513,6 +513,8 @@ var diameter = 1;
 function setup() {
   createCanvas(size, size);
   colorMode(HSB, 100);
+  noStroke();
+  fill(0, 0, 0, 10);
 }
 
 function draw() {
@@ -536,6 +538,8 @@ var diameter = 1;
 function setup() {
   createCanvas(size, size);
   colorMode(HSB, 100);
+  noStroke();
+  fill(0, 0, 0, 10);
 }
 
 function draw() {
