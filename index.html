@@ -139,7 +139,8 @@ function setup() {
   var diameter = size * 2;
   var diameterDecreaseBy = 10;
   createCanvas(size, size);
-  while(diameter > 0) {
+  var count = diameter / diameterDecreaseBy;
+  for(var i = 0; i < count; i++) {
     circle(center, center, diameter);
     diameter = diameter - diameterDecreaseBy;
   }
@@ -147,8 +148,8 @@ function setup() {
 						</code>
 					</pre>
 				</p5-editor>
-				</section>
-				<section data-transition="fade-in">
+        </section>
+        <section data-transition="fade-in">
 					<p5-editor>
 						<pre slot="code">
 							<code class="javascript" contenteditable data-trim>
@@ -157,11 +158,14 @@ function setup() {
   var center = size / 2;
   var diameter = size * 1.5;
   var diameterDecreaseBy = 20;
-  var grey = 255;
   createCanvas(size, size);
-  while(diameter > 0) {
-    fill(grey);
-    grey = grey - 8;
+  var count = diameter / diameterDecreaseBy;
+  for(var i = 0; i < count; i++) {
+    if(i % 2 === 0) {
+      fill('white');
+    } else {
+      fill('black');
+    }
     circle(center, center, diameter);
     diameter = diameter - diameterDecreaseBy;
   }
@@ -179,10 +183,34 @@ function setup() {
   var center = size / 2;
   var diameter = size * 1.5;
   var diameterDecreaseBy = 20;
+  var grey = 255;
+  createCanvas(size, size);
+  var count = diameter / diameterDecreaseBy;
+  for(var i = 0; i < count; i++) {
+    fill(grey);
+    grey = grey - 8;
+    circle(center, center, diameter);
+    diameter = diameter - diameterDecreaseBy;
+  }
+}
+  					</code>
+					</pre>
+				</p5-editor>
+        </section>
+				<section data-transition="fade-in">
+					<p5-editor>
+						<pre slot="code">
+							<code class="javascript" contenteditable data-trim>
+function setup() {
+  var size = 400;
+  var center = size / 2;
+  var diameter = size * 1.5;
+  var diameterDecreaseBy = 20;
   colorMode(HSB, 100);
   var hue = 100;
   createCanvas(size, size);
-  while(diameter > 0) {
+  var count = diameter / diameterDecreaseBy;
+  for(var i = 0; i < count; i++) {
     fill(hue, 50, 100);
     hue = hue - 2;
     circle(center, center, diameter);
@@ -207,7 +235,8 @@ function setup() {
   var brightness = 50;
   createCanvas(size, size);
   noStroke();
-  while(diameter > 0) {
+  var count = diameter / diameterDecreaseBy;
+  for(var i = 0; i < count; i++) {
     fill(hue, 60, brightness);
     hue = hue - 2;
     brightness = brightness + 15;
@@ -232,7 +261,8 @@ function setup() {
   var hue = 100;
   createCanvas(size, size);
   noStroke();
-  while(diameter > 0) {
+  var count = diameter / diameterDecreaseBy;
+  for(var i = 0; i < count; i++) {
     var brightness = 50 + random(50);
     fill(hue, 60, brightness);
     hue = hue - 0.025;
@@ -257,7 +287,8 @@ function setup() {
   var hue = 100;
   createCanvas(size, size);
   noStroke();
-  while(diameter > 0) {
+  var count = diameter / diameterDecreaseBy;
+  for(var i = 0; i < count; i++) {
     var brightness = 50 + random(50);
     fill(hue, 60, brightness);
     hue = hue - 0.025;
@@ -285,7 +316,8 @@ function setup() {
   var hue = 100;
   createCanvas(size, size);
   noStroke();
-  while(diameter > 0) {
+  var count = diameter / diameterDecreaseBy;
+  for(var i = 0; i < count; i++) {
     var brightness = 50 + random(50);
     fill(hue, 60, brightness);
     hue = hue - 0.025;
@@ -508,11 +540,9 @@ function setup() {
 
 function draw() {
   translate(t % size, 50 * noise(t * 0.01))
-  var d = 0;
-  while(d < 30) {
+  for(var d = 0; d < 30; d+=5) {
     translate(0, 5);
     circle(0, center, diameter);
-    d = d + 5;
   }
   t = t + 1;
 }
@@ -797,7 +827,10 @@ function setup() {
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/highlight/highlight.js', async: true }
 				]
-			});
+      });
+      Reveal.addEventListener('slidechanged', 
+        e => e.currentSlide.firstElementChild._slotChange()
+      )
 		</script>
 	</body>
 </html>
